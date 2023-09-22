@@ -9,18 +9,18 @@ public class Guess_ {
 
 		Random random = new Random();
 
-		int randomNum = random.nextInt(100);
-		 System.out.println("this is randomNum: " + randomNum); 
+		int randomNum = random.nextInt(300);
+		// System.out.println("this is randomNum: " + randomNum); 
 
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("Lets play a game, guess a number between 1 and 100.");
 
 		int inputNum = scan.nextInt();
-		/* System.out.println("this is inputNum: " + inputNum); */
-		for (int i = 0; i < 4; i++) {
-			int counter = i;
-			/*System.out.println("this is the top  " + i);*/
+		
+		int maxAttempts = 4;
+		
+		for (int attempts = 1; attempts < maxAttempts; attempts++) {
 
 			if (inputNum < 1 || inputNum > 300) {
 				System.out.println("Your guess is not between 1 and 100, please try again.");
@@ -35,10 +35,9 @@ public class Guess_ {
 				System.out.println("YOU WIN!");
 				break;
 			}
-			if (i == 3) {
+			if (attempts == maxAttempts) {
 				System.out.println("You Lose!");               
 			}
-			/*System.out.println("this is the bottom " + i);*/
 		}
 		
 		scan.close();
