@@ -7,39 +7,41 @@ public class Guess_ {
 
 	public static void main(String[] args) {
 
-		Random random = new Random();
+        Scanner scan = new Scanner(System.in);
 
-		int randomNum = random.nextInt(300);
-		// System.out.println("this is randomNum: " + randomNum); 
+        System.out.println("Let's play a game, guess a number between 1 and 100.");
 
-		Scanner scan = new Scanner(System.in);
+        int maxAttempts = 5;
+        int attempts = 0;
+        int randomNum = new Random().nextInt(100) + 1;
 
-		System.out.println("Lets play a game, guess a number between 1 and 100.");
+        while (attempts < maxAttempts - 1) {
 
-		int inputNum = scan.nextInt();
-		
-		int maxAttempts = 4;
-		
-		for (int attempts = 1; attempts < maxAttempts; attempts++) {
+            int inputNum = scan.nextInt();
 
-			if (inputNum < 1 || inputNum > 300) {
-				System.out.println("Your guess is not between 1 and 100, please try again.");
-				inputNum = scan.nextInt();
-			} else if (inputNum < randomNum) {
-				System.out.println("Please pick a higher number");
-				inputNum = scan.nextInt();
-			} else if (inputNum > randomNum) {
-				System.out.println("Please pick a lower number");
-				inputNum = scan.nextInt();
-			} else if (inputNum == randomNum) {
-				System.out.println("YOU WIN!");
-				break;
-			}
-			if (attempts == maxAttempts) {
-				System.out.println("You Lose!");               
-			}
-		}
-		
-		scan.close();
-	}
+            if (inputNum < 1 || inputNum > 100) {
+                System.out.println("Your guess is not between 1 and 100, please try again.");
+            } else if (inputNum < randomNum) {
+                System.out.println("Please pick a higher number");
+            } else if (inputNum > randomNum) {
+                System.out.println("Please pick a lower number");
+            } else if (inputNum == randomNum) {
+                System.out.println("YOU WIN!");
+                return;
+            }
+
+            attempts++;
+            System.out.println("You have " + (maxAttempts - attempts) + " attempts left.");
+        }
+
+        int inputNum = scan.nextInt();
+
+        if (inputNum == randomNum) {
+            System.out.println("YOU WIN!");
+        } else {
+            System.out.println("You Lose!");
+        }
+
+        scan.close();
+    }
 }
