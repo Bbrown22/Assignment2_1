@@ -9,19 +9,19 @@ public class Guess_ {
 
 	        Scanner scan = new Scanner(System.in);
 
-	        System.out.println("Let's play a game, guess a number between 1 and 300.");
+	        System.out.println("Let's play a game, guess a number between 1 and 100.");
 
 	        int maxAttempts = 5;
 	        int attempts = 0;
-	        int randomNum = new Random().nextInt(300) + 1;
+	        int randomNum = new Random().nextInt(100) + 1;
 
 	        while (attempts < maxAttempts - 1) {
 
 	            int inputNum = scan.nextInt();
 
-	            if (inputNum < 1 || inputNum > 300) {
-	                System.out.println("Your guess is not between 1 and 300, please try again.");
-	                continue; // skip the rest of the loop and start over
+	            if (inputNum < 1 || inputNum > 100) {
+	                System.out.println("Your guess is not between 1 and 100, please try again.");
+	                continue; 
 	            }
 
 	            if (inputNum < randomNum) {
