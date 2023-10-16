@@ -34,7 +34,9 @@ public class Guess_ {
 	            }
 
 	            attempts++;
-	            System.out.println("You have " + (maxAttempts - attempts) + " attempts left.");
+	            if(inputNum <= 100) {
+	            	System.out.println("You have " + (maxAttempts - attempts) + " attempts left.");
+	            }
 	        }
 
 	        int inputNum = scan.nextInt();
